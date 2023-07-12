@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block page_title %}All Doctors{% endblock page_title %}
+
+{% block page_body %}
+    <h1>Welcome</h1>
+    <a href=" {% url 'index' %} ">Back to Home</a>
+<ul>   
+    {%for doc in doctors%}
+        <li> <a href="{% url 'doctor-detail' doc.id %} ">{{doc.user.name}}  </a> </li>
+    {%endfor%}
+</ul>
+{% endblock page_body %}
+    

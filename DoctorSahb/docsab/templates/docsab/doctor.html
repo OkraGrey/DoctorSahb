@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block page_title%}{{doctor.user.name|title}}{% endblock page_title %}
+
+{% block page_body %}
+
+<a href=" {% url 'all_doctors' %} ">Back to Doctors</a>
+<br>
+<a href="{% url 'index' %}">Back to Home</a>
+
+<h1>Dr.{{doctor.user.name}}</h1>
+<h2>Details</h2>
+<h3>Email Address:{{doctor.user.email}}</h3>
+<h3>Contact_Number:{{doctor.user.contact}}</h3>
+<h3>Doctor_cnic{{doctor.cnic}}</h3>
+<h3>Is {{doctor.user.name}} is a surgeon : {{doctor.is_surgeon}}</h3>
+<h3>Hospital Name: {{hosps.0.name}}</h3>
+<h3>Hospital Address : {{hosps.0.address}}</h3>
+<h3>Gender:{{doctor.user.gender}}</h3>
+<h3>Expertise:{{doctor.speciality}}</h3>
+<h3>Fee:{{doctor.consultation_fee}}</h3>
+<h2>About Dr.{{doctor.user.name}}</h2>
+<p>{{doctor.about}}</p>
+
+
+
+
+{% endblock page_body %}
+
+
+
+
+{% comment %} user = models.OneToOneField(User, on_delete=models.CASCADE)
+    is_surgeon = models.BooleanField(default=False)
+    is_available_online = models.BooleanField(default=False)
+    cnic = models.CharField(max_length=15)
+    consultation_fee = models.DecimalField(max_digits=8, decimal_places=2)
+    about = models.TextField()
+    speciality = models.OneToOneField(Speciality, on_delete=models.CASCADE)
+    
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    contact = models.CharField(max_length=20)
+    role = models.ForeignKey(Role, on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    gender = models.ForeignKey(Gender, on_delete=models.CASCADE)
+
+    {% endcomment %}
+
+
+

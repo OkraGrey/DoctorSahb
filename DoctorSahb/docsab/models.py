@@ -37,8 +37,8 @@ class User(models.Model):
     email = models.EmailField()
     contact = models.CharField(max_length=20)
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
-    address = models.OneToOneField(Address, on_delete=models.CASCADE)
-    gender = models.OneToOneField(Gender, on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    gender = models.ForeignKey(Gender, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -49,6 +49,8 @@ class Speciality(models.Model):
 
     def __str__(self):
         return self.specialty_description
+    class Meta:
+        verbose_name_plural= "Specialities"
 
 
 class Doctor(models.Model):
