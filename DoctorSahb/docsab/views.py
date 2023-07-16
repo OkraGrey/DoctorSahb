@@ -25,3 +25,10 @@ def doctor(request,slug):
         "doctor":doctor_details,
         "hosps":doctor_hospital_list,
     })
+
+##########
+def all_hospitals(request):
+    hosp_list= Hospital.objects.all()
+    return render(request,"docsab/all_hospitals.html" ,{
+        "hosps":hosp_list
+    })
