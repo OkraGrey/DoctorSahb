@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block page_title%}{{hosp.name|title}}{% endblock page_title %}
+
+{% block page_body %}
+
+
+<div class="container">
+    <h1>{{hosp.name}}</h1>
+</div>
+
+
+{% endblock page_body %}
+
+
+
+
+
+
+{% comment %} 
+    name = models.CharField(max_length=100)
+    contact_number = models.CharField(max_length=20)
+    location_link = models.URLField()
+    website_link = models.URLField()
+    address = models.OneToOneField(Address, on_delete=models.CASCADE)
+    hospital_specialities = models.ManyToManyField(Speciality)
+    doctors = models.ManyToManyField(Doctor) {% endcomment %}

@@ -32,3 +32,15 @@ def all_hospitals(request):
     return render(request,"docsab/all_hospitals.html" ,{
         "hosps":hosp_list
     })
+
+def hospital(request,slug):
+    
+    hosp_details=Hospital.objects.get(pk=slug)
+    #doctor_hospital_list=doctor_details.hospital_set.all()
+    return render(request,"docsab/hosp.html",{
+        "hosp":hosp_details,
+    })
+
+
+def about(request):
+    return render(request,"docsab/about.html" )

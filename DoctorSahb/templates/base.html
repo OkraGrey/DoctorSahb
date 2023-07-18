@@ -1,12 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block page_title %}{% endblock page_title %} </title>
+    <title>{% block page_title %}DocSab{% endblock page_title %} </title>
+    
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    {% block docsab_css %}{% endblock docsab_css %} 
 </head>
 <body>
-    <h1>Hello base</h1>
-    {% block page_body %}{% endblock page_body %}
+    
+
+    {% comment %} <nav class="navbar navbar-expand-lg bg-white navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand ms-auto" href="#">Navbar</a>
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="{% url 'all_hospitals' %}" class="nav-link " aria-current="page" href="#">Hospitals</a>
+              </li>
+              <li class="nav-item">
+                <a href="/docsab/all_doctors" class="nav-link" href="#">Doctors</a>
+              </li>
+              
+            </ul>
+              
+          </div>
+        </div>
+      </nav> {% endcomment %}
+      
+    {% block page_header %}
+    {% endblock page_header %}
+    
+      
+        {% block page_body %}{% endblock page_body %}
+
+        
+
 </body>
 </html>

@@ -74,6 +74,7 @@ class Hospital(models.Model):
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
     hospital_specialities = models.ManyToManyField(Speciality)
     doctors = models.ManyToManyField(Doctor)
+    about = models.TextField(null=True)
     def __str__(self):
         return self.name
 
