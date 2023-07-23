@@ -7,7 +7,7 @@ from .models import *
 admin.site.register(Address)
 admin.site.register(Gender)
 admin.site.register(Role)
-admin.site.register(User)
+admin.site.register(TimeSlot)
 admin.site.register(Speciality)
 admin.site.register(Doctor)
 admin.site.register(Hospital)

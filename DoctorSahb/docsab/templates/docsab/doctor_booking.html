@@ -101,26 +101,12 @@
                 
                 <div class="horizontal_line"></div>
                 
-                <div class="end"><a class="btn btn-my" href="{% url 'doctor-slots' doctor.id %}">Book an Appointment</a></div>
+                <div class="end"><a class="btn btn-my" href="">Book an Appointment</a></div>
                 
             </div>
             
         </div>
         
-            <div class="horizontal_line"></div>
-            <div class="doctor_about">
-                <h3 class="about_doct_main">About Dr.{{doctor.user.first_name}} {{doctor.user.last_name}}</h3>
-                <h4 class="doc_subheading">Bio</h4>
-                <p class="doc_subheading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, eius maxime, ullam nihil dolores facilis veniam dolorem dignissimos quis quasi voluptatem sed iste vero nulla blanditiis. Optio quasi libero a?</p>
-                <h4 class="doc_subheading">Qualifications</h4>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, atque debitis soluta veritatis animi quia repellat quo, dicta veniam dolore maxime maiores dolorem ipsa alias velit minus! Aliquid, ducimus laborum!</p>
-                <h4 class="doc_subheading">Experience</h4>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, atque debitis soluta veritatis animi quia repellat quo, dicta veniam dolore maxime maiores dolorem ipsa alias velit minus! Aliquid, ducimus laborum!</p>
-                <h4 class="doc_subheading">Message By Dr.{{doctor.user.first_name}} {{doctor.user.last_name}}</h4>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, atque debitis soluta veritatis animi quia repellat quo, dicta veniam dolore maxime maiores dolorem ipsa alias velit minus! Aliquid, ducimus laborum!</p>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -147,23 +133,6 @@
 
 
 
-
-{% comment %} user = models.OneToOneField(User, on_delete=models.CASCADE)
-    is_surgeon = models.BooleanField(default=False)
-    is_available_online = models.BooleanField(default=False)
-    cnic = models.CharField(max_length=15)
-    consultation_fee = models.DecimalField(max_digits=8, decimal_places=2)
-    about = models.TextField()
-    speciality = models.OneToOneField(Speciality, on_delete=models.CASCADE)
-    
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    contact = models.CharField(max_length=20)
-    role = models.ForeignKey(Role, on_delete=models.CASCADE)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    gender = models.ForeignKey(Gender, on_delete=models.CASCADE)
-
-    {% endcomment %}
 
 
 

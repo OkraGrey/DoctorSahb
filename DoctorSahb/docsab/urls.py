@@ -7,5 +7,6 @@ urlpatterns = [
     path("all_hospitals",views.all_hospitals,name="all_hospitals"),
     path("docsab/hosp/<int:slug>",views.hospital,name="hosp-detail"),
     path("docsab/about",views.about,name="about"),
+    path("docsab/doc/doc_slots<int:slug>",views.doctor_slots,name="doctor-slots"),
 
 ]

@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #ADA996;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.doctor_body{
+    
+    display: flex;
+    justify-content: center;
+}
+.box{
+    font-family: cursive;
+    
+    width: 80%;
+
+
+    
+}
+.card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
+.img_container{
+    border: 1px solid #fffcdc;
+    margin: 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+}
+.img_container img{
+    height: 100%;
+    width: 100%;
+}
+.info_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    flex: 1;
+}
+
+.info_container{
+    display: flex;
+    align-items: start;
+    margin-left: 30px;
+}
+.verical_line{
+    border-left: 2px solid #fffcdc;
+    height: 90%;
+}
+.info_name{
+    font-family: cursive;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+.info_speciality{
+    font-family: cursive;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-weight: bolder;
+    font-size: 1em;
+    margin: 10px 0px 10px 0px;
+}
+.info_exp_time{
+    width: 100%;
+    font-family: cursive;
+    display: flex;
+    margin-top: 10px;
+}
+.exp{
+    font-family: cursive;
+    font-size: 0.8rem;
+    padding: 5px;
+    margin-left: auto;
+    flex: 1;
+}
+.time{
+    margin-left: 20px;
+    font-family: cursive;
+    font-size: 0.8rem;
+    padding: 5px;
+    margin-right: 50px;
+}
+.info_exp_time_head{
+    flex:1;
+}
+
+.horizontal_line{
+    border-bottom: 2px solid #fffcdc;
+    width: 100%;
+}
+
+.card-right{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.fee{
+    flex: 1;
+    font-family: cursive;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-weight: bolder;
+    font-size: 0.9em;
+
+    display: flex;
+    justify-content: space-between;
+}
+.add{
+    flex: 1;
+    font-family: cursive;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-weight: bolder;
+    font-size: 0.9em;
+margin-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.end{
+    flex: 1;
+}
+.fee_end{
+    margin-right: 30px;
+}
+.add_start{
+    font-size: 0.8em;
+}
+.add_end{
+    font-size: 0.8em;
+}
+.btn-my{
+    border: 1px solid #bab9aa;
+    background-color: #fffcdc;
+    margin-top: 5px;
+    
+    width: 91%;
+}
+.btn-my:hover{
+    background-color: #f1ecb8;
+}
+
+.doctor_about{
+    margin: 30px 0px 30px 0px;
+    font-family: 'Edu SA Beginner', cursive;
+    display: flex;
+    flex-direction: column;
+}
+.about_doct_main{
+    font-family: 'Edu SA Beginner', cursive;
+    margin-left: 35%;
+}
+.doctor_about p{
+    font-family: 'Edu SA Beginner', cursive;
+}
+.doc_subheading{
+    font-family: 'Edu SA Beginner', cursive;
+    
+}
+
+/* slots */
+
+
+.slot-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+.slts{
+    width: 20%;
+    margin-right: 20px;
+    color: black;
+}
+.date{
+    font-size: 0.6em;
+    color: rebeccapurple;
+    font-weight: bolder;
+}

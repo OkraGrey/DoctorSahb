@@ -51,14 +51,14 @@
     </div>
   </section>
 
-
+  
     <div class="container doctor_body">
-        <div class="box">
+        <div style="margin-left:30%" class="box">
             
-            <div class="horizontal_line"></div>
+            
             
         <div class="upper_body row">
-            <div class="col-8 card">
+            <div class="col-6 card">
             
                 
                 <div class="img_container">
@@ -74,60 +74,50 @@
                         <h2 class="info_speciality">Expert {{doctor.speciality}}</h2>
                     </div>
                     <div class="info_exp_time">
-                        <div class="info_exp_time_head" >
-                            <h4 class="exp">Experience: 5 years</h4>
-                        </div>
-                        <div >
-                            <h4 class="time">Average time : 20 mins</h4>
+                        <div class="fee">
+                            <span class="fee_start">Fee:</span>
+                            <span class="fee_end">Rs.{{doctor.consultation_fee}}</span>
                         </div>
                     </div>
                 </div>
-                <div class="verical_line">
-
-                </div>
+                
 
             </div>
-            <div class="col-4 card-right">
-                <div class="fee">
-                    <span class="fee_start">Fee:</span>
-                    <span class="fee_end">Rs.{{doctor.consultation_fee}}</span>
-                </div>
-                
-                <div class="horizontal_line"></div>
-                <div class="add">
-                    <span class="add_start">Address:</span>
-                    <span class="add_end">{{doctor.address}}</span>
-                </div>
-                
-                <div class="horizontal_line"></div>
-                
-                <div class="end"><a class="btn btn-my" href="{% url 'doctor-slots' doctor.id %}">Book an Appointment</a></div>
-                
+
             </div>
             
+            
         </div>
-        
-            <div class="horizontal_line"></div>
-            <div class="doctor_about">
-                <h3 class="about_doct_main">About Dr.{{doctor.user.first_name}} {{doctor.user.last_name}}</h3>
-                <h4 class="doc_subheading">Bio</h4>
-                <p class="doc_subheading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, eius maxime, ullam nihil dolores facilis veniam dolorem dignissimos quis quasi voluptatem sed iste vero nulla blanditiis. Optio quasi libero a?</p>
-                <h4 class="doc_subheading">Qualifications</h4>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, atque debitis soluta veritatis animi quia repellat quo, dicta veniam dolore maxime maiores dolorem ipsa alias velit minus! Aliquid, ducimus laborum!</p>
-                <h4 class="doc_subheading">Experience</h4>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, atque debitis soluta veritatis animi quia repellat quo, dicta veniam dolore maxime maiores dolorem ipsa alias velit minus! Aliquid, ducimus laborum!</p>
-                <h4 class="doc_subheading">Message By Dr.{{doctor.user.first_name}} {{doctor.user.last_name}}</h4>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, atque debitis soluta veritatis animi quia repellat quo, dicta veniam dolore maxime maiores dolorem ipsa alias velit minus! Aliquid, ducimus laborum!</p>
-            </div>
-        </div>
+
     </div>
 
 
 
 
 
+    <div class="slot-container container">
+        
+        {%for slot in slots%}
+            <div id="slot_id" class="slts btn btn-my colorsss">
+                <a class="colorsss" href="">{{slot.start_time}}- {{slot.end_time}} <span class="date">{{slot.slot_date}}</span></a>
+            </div>
+        {%endfor%}
+    </div>
 
-
+<div class="container">
+    <div class="doctor_about">
+        <h3 class="about_doct_main">About Dr.{{doctor.user.first_name}} {{doctor.user.last_name}}</h3>
+        <h4 class="doc_subheading">Bio</h4>
+        <p class="doc_subheading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, eius maxime, ullam nihil dolores facilis veniam dolorem dignissimos quis quasi voluptatem sed iste vero nulla blanditiis. Optio quasi libero a?</p>
+        <h4 class="doc_subheading">Qualifications</h4>
+        <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, atque debitis soluta veritatis animi quia repellat quo, dicta veniam dolore maxime maiores dolorem ipsa alias velit minus! Aliquid, ducimus laborum!</p>
+        <h4 class="doc_subheading">Experience</h4>
+        <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, atque debitis soluta veritatis animi quia repellat quo, dicta veniam dolore maxime maiores dolorem ipsa alias velit minus! Aliquid, ducimus laborum!</p>
+        <h4 class="doc_subheading">Message By Dr.{{doctor.user.first_name}} {{doctor.user.last_name}}</h4>
+        <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, atque debitis soluta veritatis animi quia repellat quo, dicta veniam dolore maxime maiores dolorem ipsa alias velit minus! Aliquid, ducimus laborum!</p>
+    </div>
+    
+</div>
 
 
 
@@ -147,23 +137,6 @@
 
 
 
-
-{% comment %} user = models.OneToOneField(User, on_delete=models.CASCADE)
-    is_surgeon = models.BooleanField(default=False)
-    is_available_online = models.BooleanField(default=False)
-    cnic = models.CharField(max_length=15)
-    consultation_fee = models.DecimalField(max_digits=8, decimal_places=2)
-    about = models.TextField()
-    speciality = models.OneToOneField(Speciality, on_delete=models.CASCADE)
-    
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    contact = models.CharField(max_length=20)
-    role = models.ForeignKey(Role, on_delete=models.CASCADE)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    gender = models.ForeignKey(Gender, on_delete=models.CASCADE)
-
-    {% endcomment %}
 
 
 

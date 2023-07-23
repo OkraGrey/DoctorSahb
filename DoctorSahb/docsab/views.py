@@ -26,6 +26,17 @@ def doctor(request,slug):
         "hosps":doctor_hospital_list,
     })
 
+def doctor_slots(request,slug):
+    doctor_details=Doctor.objects.get(pk=slug)
+    doctor_slots=doctor_details.time_slots.all()
+    doctor_hospital_list=doctor_details.hospital_set.all()
+    return render(request,"docsab/doctor_slots.html",{
+        "doctor":doctor_details,
+        "hosps":doctor_hospital_list,
+        "slots":doctor_slots,
+    })
+
+
 ##########
 def all_hospitals(request):
     hosp_list= Hospital.objects.all()
