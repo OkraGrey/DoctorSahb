@@ -8,5 +8,6 @@ urlpatterns = [
     path("docsab/hosp/<int:slug>",views.hospital,name="hosp-detail"),
     path("docsab/about",views.about,name="about"),
     path("docsab/doc/doc_slots<int:slug>",views.doctor_slots,name="doctor-slots"),
+    path("docsab/doc/doc_slots/booking/<int:slug1>/<int:slug2>",views.doctor_booking,name="doctor-booking"),
 
 ]

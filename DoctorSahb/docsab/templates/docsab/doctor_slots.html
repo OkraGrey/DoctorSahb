@@ -99,7 +99,7 @@
         
         {%for slot in slots%}
             <div id="slot_id" class="slts btn btn-my colorsss">
-                <a class="colorsss" href="">{{slot.start_time}}- {{slot.end_time}} <span class="date">{{slot.slot_date}}</span></a>
+                <a class="colorsss" href="{% url 'doctor-booking' doctor.id slot.id%}">{{slot.start_time}}- {{slot.end_time}} <span class="date">{{slot.slot_date}}</span></a>
             </div>
         {%endfor%}
     </div>

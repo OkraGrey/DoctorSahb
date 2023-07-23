@@ -36,6 +36,13 @@ def doctor_slots(request,slug):
         "slots":doctor_slots,
     })
 
+def doctor_booking(request,slug1,slug2):
+    slot= TimeSlot.objects.get(pk=slug2)
+    doctor_details=Doctor.objects.get(pk=slug1)
+    return render(request,"docsab/doctor_booking.html",{
+        "doctor":doctor_details,
+        "slot":slot,
+    })
 
 ##########
 def all_hospitals(request):
