@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.urls import reverse
 from .models import *
 from .forms import *
@@ -65,36 +65,32 @@ def doctor_slots(request,slug):
 
 def doctor_booking(request,slug1,slug2):
     
-    slot= TimeSlot.objects.get(pk=slug2)
-    doctor_details=Doctor.objects.get(pk=slug1)
-    return render(request,"docsab/doctor_booking.html",{
-        "doctor":doctor_details,
-        "slot":slot,
-    })
-# def doctor_booking(request,slug1,slug2):
-        
-#     if request.method == 'POST':
-#         form = BookingForm(request.POST)
-#         if form.is_valid():
-#             # Save the form and redirect on successful form submission
-#             form.save()
-#             return redirect('success_url_name')
-#     else:
-#         # If the user is authenticated and validated, populate patient fields
-#         if request.user.is_authenticated:
-#             try:
-#                 patient_instance = request.user
-#                 print(request.user)
-#                 initial_data = {'patient': patient_instance.pk}
-#                 form = BookingForm(initial=initial_data)
-#             except Patient.DoesNotExist:
-#                 form = BookingForm()
-#                 print("caught error")
-#         else:
-#             form = BookingForm()
+    
+        patient_name= request.user.patient
 
-#     return render(request, 'docsab/doctor_booking.html', {'form': form})
-##########
+        slot= TimeSlot.objects.get(pk=slug2)
+        doctor_details=Doctor.objects.get(pk=slug1)
+        return render(request,"docsab/doctor_booking.html",{
+            "doctor":doctor_details,
+            "slot":slot,
+            "patient":patient_name
+        })
+    
+        return render(request,'docsab/about.html')
+
+def booking_confirmation(request,slug1,slug2,slug3):
+    doctor=Doctor.objects.get(pk=slug1)
+    patient=Patient.objects.get(pk=slug2)
+    slot=TimeSlot.objects.get(pk=slug3)
+    booking=Booking(
+            doctor=doctor,
+            patient=patient,
+            is_completed=False,
+            time_slot=slot
+        )
+    booking.save()
+    return render(request,'docsab/confirm_booking.html')
+
 def all_hospitals(request):
     hosp_list= Hospital.objects.all()
     return render(request,"docsab/all_hospitals.html" ,{

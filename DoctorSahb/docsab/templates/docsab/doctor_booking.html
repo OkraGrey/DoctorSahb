@@ -58,29 +58,29 @@
             <div class="col-7">   
                 <div class="booking-left">
                     <div class="left-booking-for">
-                        <h3 class="left-booking-for-main-heading">Appointment For:</h3>
+                        <h3 class="left-booking-for-main-heading">Appointment Details:</h3>
                     </div>
 
                     <div class="left-patient-info">
                         <label for="">Patient Name</label>
-                        <input type="text" placeholder={{doctor.user.first_name}}>
-                        <label for="">Contact_Number</label>
-                        <input type="text" placeholder="03006679011">
-                        <label id="left-patient-info-caution" for=""><i class="fa-solid fa-circle-exclamation"></i>&nbsp; You will be contacted with this number</label>
+                        <input readonly type="text" placeholder={{patient|title}}>
+                        <label for="">Email</label>
+                        <input readonly type="text" placeholder="{{patient.email}}">
+                        <label id="left-patient-info-caution" for=""><i class="fa-solid fa-circle-exclamation"></i>&nbsp; You will be contacted through this email</label>
                     </div>
 
-                    <div class="left-payment-info">
+                   <div class="left-payment-info">
                         
 
-                        <h3 class="payment-heading"><i class="fa-solid fa-wallet"></i>Choose a Payment Method</h3>
+                        <h3 class="payment-heading"><i class="fa-solid fa-wallet"></i> &nbsp;Choose a Payment Method</h3>
 
                         <div class="left-payment-info-payment-opt">
                             <label for="">Payment at Clinic</label>
-                            <input type="radio" name="" id="">
+                            <input type="radio" name="" id="" checked disabled>
                         </div>
 
 
-                    </div>
+                    </div> 
                 </div>
                 
             </div>
@@ -96,25 +96,25 @@
                         <img class="rounded-circle" alt="avatar1" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
                     </div>
                     <div class="right-doctor-related-information">
-                        <h3 class="right-doctor-name">Dr Hasnain</h3>
+                        <h3 class="right-doctor-name">Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</h3>
                         <div class="horizontal_line"></div>
-                        <h3 class="right-doctor-name">Fee: Rs.2000</h3>
+                        <h3 class="right-doctor-name">Rs.2000</h3>
                         <div class="horizontal_line"></div>
-                        <h3 class="right-doctor-speciality">Speciality</h3>
+                        <h3 class="right-doctor-speciality">{{doctor.speciality}}</h3>
                         <div class="horizontal_line"></div>
-                        <h3 class="right-doctor-speciality">{{slot.slot_date}}</h3>
+                        <h3 class="right-doctor-speciality">{{slot.slot_date}} &nbsp; <span style="font-weight:bolder">{{slot.start_time}}-{{slot.end_time}}</span></h3>
                         <div class="horizontal_line"></div>
                         <div class="right-doctor-time-bton">
                             <div class="right-doctor-time-bton-style">
                                 
-                                <a style="color:grey"href="{% url 'index' %}"> Book Appointment</a>
+                                <a style="color:grey"href="{% url 'confirm-booking' doctor.id user.patient.id slot.id %}"> Book Appointment</a>
                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+        <div style="margin-bottom:30px;"></div>
     </div>
 
 
@@ -124,7 +124,7 @@
 
 
 
-
+    {% include 'docsab/includes/footer.html' %}
 
 
 

@@ -88,7 +88,7 @@ class Hospital(models.Model):
 
 class Patient(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    date_of_birth = models.DateField()
+    date_of_birth = models.DateField(null=True)
     gender = models.ForeignKey(Gender, null=True,on_delete=models.CASCADE)
     contact_number=models.CharField(max_length=12,unique=True,null=True)
 
@@ -113,7 +113,6 @@ class Booking(models.Model):
     patient = models.OneToOneField(Patient, on_delete=models.CASCADE)
     doctor = models.OneToOneField(Doctor, on_delete=models.CASCADE)
     is_completed = models.BooleanField(default=False)
-    hospital = models.OneToOneField(Hospital, on_delete=models.CASCADE)
     time_slot= models.OneToOneField(TimeSlot,on_delete=models.CASCADE,null=True,unique=True)
     def __str__(self):
         return f"Booking for {self.doctor.user.first_name} by {self.patient.user.first_name}"

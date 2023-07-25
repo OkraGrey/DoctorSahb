@@ -11,5 +11,6 @@ urlpatterns = [
     path("docsab/about",views.about,name="about"),
     path("docsab/doc/doc_slots<int:slug>",views.doctor_slots,name="doctor-slots"),
     path("docsab/doc/doc_slots/booking/<int:slug1>/<int:slug2>",views.doctor_booking,name="doctor-booking"),
+    path("docsab/doc/doc_slots/confirm_booking/<int:slug1>/<int:slug2>/<int:slug3>",views.booking_confirmation,name="confirm-booking")
 
 ]
