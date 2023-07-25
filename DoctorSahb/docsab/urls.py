@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
+from .views import CustomLoginView
 urlpatterns = [
+    path("docsab/login",CustomLoginView.as_view(),name='login'),
     path("",views.index,name="index"),
     path("all_doctors",views.all_doctors, name="all_doctors"),
     path("docsab/doc/<int:slug>",views.doctor,name="doctor-detail"),

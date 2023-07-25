@@ -72,7 +72,7 @@ class TimeSlot(models.Model):
     start_time=models.TimeField(null=True)
     end_time = models.TimeField(null=True)
     def __str__(self):
-        return self.start_time
+        return f'{self.start_time}'
 class Hospital(models.Model):
     name = models.CharField(max_length=100)
     contact_number = models.CharField(max_length=20)
