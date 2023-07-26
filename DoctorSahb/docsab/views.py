@@ -3,9 +3,10 @@ from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.urls import reverse
 from .models import *
 from .forms import *
-
+from django.core.mail import send_mail,EmailMessage
 from django.contrib.auth.views import LoginView
 from .models import *
+from django.conf import settings
 
 # Create your views here.
 
@@ -57,10 +58,11 @@ def doctor_slots(request,slug):
     doctor_details=Doctor.objects.get(pk=slug)
     doctor_slots=doctor_details.time_slots.all()
     doctor_hospital_list=doctor_details.hospital_set.all()
+    unbooked_slots = doctor_slots.exclude(booking__isnull=False)
     return render(request,"docsab/doctor_slots.html",{
         "doctor":doctor_details,
         "hosps":doctor_hospital_list,
-        "slots":doctor_slots,
+        "slots":unbooked_slots,
     })
 
 def doctor_booking(request,slug1,slug2):
@@ -89,6 +91,12 @@ def booking_confirmation(request,slug1,slug2,slug3):
             time_slot=slot
         )
     booking.save()
+    subject = 'Hello from Django!'
+    message = 'This is a test email sent from Django.'
+    from_email = 'hasnain.sohail@arbisoft.com'  # Replace with your Gmail email address
+    recipient_list = ['hasnainsohail3030@gmail.com']  # Replace with the recipient's email address
+
+    send_mail(subject, message, from_email, recipient_list)
     return render(request,'docsab/confirm_booking.html')
 
 def all_hospitals(request):

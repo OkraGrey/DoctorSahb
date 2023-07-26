@@ -42,7 +42,7 @@ class Role(models.Model):
 
 #     def __str__(self):
 #         return self.name
-
+ 
 
 class Speciality(models.Model):
     specialty_description = models.CharField(max_length=100)
@@ -113,6 +113,6 @@ class Booking(models.Model):
     patient = models.OneToOneField(Patient, on_delete=models.CASCADE)
     doctor = models.OneToOneField(Doctor, on_delete=models.CASCADE)
     is_completed = models.BooleanField(default=False)
-    time_slot= models.OneToOneField(TimeSlot,on_delete=models.CASCADE,null=True,unique=True)
+    time_slot= models.OneToOneField(TimeSlot,on_delete=models.CASCADE,null=True)
     def __str__(self):
         return f"Booking for {self.doctor.user.first_name} by {self.patient.user.first_name}"
